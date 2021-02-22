@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+<title>User data</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link rel="stylesheet" type="text/css" href="css/table-style.css" />
+<link rel="stylesheet" type="text/css" href="css/basictable.css" />
+<link href="css/component.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/style_grid.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/font-awesome.css" rel="stylesheet">
+</head>
+<body ng-app="myApp">
+<div class="wthree_agile_admin_info">
+		  <div class="w3_agileits_top_nav">
+			<ul id="gn-menu" class="gn-menu-main">				<li class="gn-trigger">
+					<a class="gn-icon gn-icon-menu"><i class="fa fa-bars" aria-hidden="true"></i><span>Menu</span></a>
+					<nav class="gn-menu-wrapper">
+						<div class="gn-scroller scrollbar1">
+							<ul class="gn-menu agile_menu_drop">
+								
+								<li class="page">
+									 <ul class="gn-submenu">
+						
+									  <li class="mini_list_agile"> <a href="/admin"> <i class="fa fa-caret-right" aria-hidden="true"></i> Employees data</a></li>
+									   <li class="mini_list_w3"><a href="/personal"> <i class="fa fa-caret-right" aria-hidden="true"></i> Employee wise data</a></li>
+							</ul>
+						</div>
+					</nav>
+				</li>
+                <li class="second logo"><h1><a href="#"><i class="fa fa-graduation-cap" aria-hidden="true"></i>TCS </a></h1></li>
+					<li class="second admin-pic">
+				       <ul class="top_dp_agile">
+									<li class="dropdown profile_details_drop">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+											<div class="profile_img">	
+												<span class="prfil-img"><img src="images/admin.jpg" alt=""> </span> 
+											</div>	
+										</a>
+										<ul class="dropdown-menu drp-mnu">
+											<li> <a href="#"><i class="fa fa-cog"></i> Settings</a> </li> 
+											<li> <a href="#"><i class="fa fa-user"></i> Profile</a> </li> 
+											<li> <a href="/logout"><i class="fa fa-sign-out"></i> Logout</a> </li>
+										</ul>
+									</li>
+									
+						</ul>
+				</li>
+			</ul>
+		</div>
+		<div class="clearfix"></div>
+				<div class="inner_content">
+					<div ng-controller="admincontroller" ng-init="getdata()">
+					  <h2 class="w3_inner_tittle">Sustainability & Wellness</h2>
+									<div class="agile-tables">
+										<div>
+										 <h3 class="w3_inner_tittle two">Health Data</h3>
+											<table id="table" datatable="ng" dt-options="vm.dtOptions" dt-instace="vm.dtInstace" width="100%">
+											<thead>
+											  <tr>
+												<th>Sl No</th>
+												<th>username</th>
+												<th>Gender</th>
+												<th>Age</th>
+												<th>PrevalentHYP</th>
+												<th>TotChol</th>
+												<th>sysBP</th>
+												<th>diaBP</th>
+												<th>BMI</th>
+												<th>HeartRate</th>
+												<th>Glucose</th>
+												<th>Breath Rate</th>
+												<th>SpO2</th>
+												<th>Diabetes</th>
+												<th>Bronchiectasis</th>
+												<th>CHD</th>
+												<th>Hypoxemia</th>
+												<th>Asthma</th>
+											  </tr>
+											</thead>
+											<tbody>
+											  <tr ng-repeat="user in users">
+												<td ng-bind="$index + 1"></td>
+												<td ng-bind="user.username"></td>
+												<td ng-bind="user.male"></td>
+												<td ng-bind="user.age"></td>
+												<td ng-bind="user.prevalentHyp"></td>
+												<td ng-bind="user.totChol"></td>
+												<td ng-bind="user.sysBP"></td>
+												<td ng-bind="user.diaBP"></td>
+												<td ng-bind="user.BMI"></td>
+												<td ng-bind="user.heartRate"></td>
+												<td ng-bind="user.glucose"></td>
+												<td ng-bind="user.BreathRate"></td>
+												<td ng-bind="user.SpO2"></td>
+												<td ng-bind="user.Diabetis"></td>
+												<td ng-bind="user.Bronchie"></td>
+												<td ng-bind="user.CHD"></td>
+												<td ng-bind="user.Hypoxemia"></td>
+												<td ng-bind="user.Asthma"></td>
+											  </tr>
+											</tbody>
+										  </table>
+									  </div>
+							
+				    </div>
+				</div>
+
+          <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+		  <script src="js/modernizr.custom.js"></script>
+		
+		   <script src="js/classie.js"></script>
+		  <script src="js/gnmenu.js"></script>
+		  <script>
+			new gnMenu( document.getElementById( 'gn-menu' ) );
+		 </script>
+
+<script type="text/javascript" src="js/jquery.basictable.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+      $('#table').basictable();
+
+      $('#table-breakpoint').basictable({
+        breakpoint: 768
+      });
+
+      $('#table-swap-axis').basictable({
+        swapAxis: true
+      });
+
+      $('#table-force-off').basictable({
+        forceResponsive: false
+      });
+
+      $('#table-no-resize').basictable({
+        noResize: true
+      });
+
+      $('#table-two-axis').basictable();
+
+      $('#table-max-height').basictable({
+        tableWrapper: true
+      });
+    });
+</script>
+<!-- //js -->
+<script src="js/screenfull.js"></script>
+		<script>
+		$(function () {
+			$('#supported').text('Supported/allowed: ' + !!screenfull.enabled);
+
+			if (!screenfull.enabled) {
+				return false;
+			}
+
+			
+
+			$('#toggle').click(function () {
+				screenfull.toggle($('#container')[0]);
+			});	
+		});
+		</script>
+<script src="js/jquery.nicescroll.js"></script>
+<script src="js/scripts.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+<script src="javascripts/adminhome.js"></script>
+<script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
+<script src="javascripts/angular-datatables.min.js"></script>
+<script src="javascripts/angular-datatables.buttons.min.js"></script>
+<script src="javascripts/jquery.dataTables.min.js"></script>
+<script src="javascripts/buttons.html5.min.js"></script>
+<script src="javascripts/buttons.print.min.js"></script>
+<script src="javascripts/buttons.flash.min.js"></script>
+
+
+</body>
+</html>
